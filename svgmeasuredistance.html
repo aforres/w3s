@@ -1,0 +1,37 @@
+<html lang="en">
+  <head>
+
+  </head>
+
+  <body>
+
+<svg width="100" height="100">
+  <rect width="100" height="100" fill="none" stroke="black" />
+  <g>
+    <line id="line"
+          x1="0" y1="0"
+          x2="0" y2="0"
+          stroke="black" />
+    <text id="length" x="50" y="50" font-size="14" text-anchor="middle">0</text>
+  </g>
+  <script>
+    let startX, startY;
+    document.addEventListener("mousedown", (e) => {
+      startX = e.clientX;
+      startY = e.clientY;
+    });
+    document.addEventListener("mouseup", (e) => {
+      let line = document.getElementById("line");
+      line.setAttribute("x1", startX);
+      line.setAttribute("y1", startY);
+      line.setAttribute("x2", e.clientX);
+      line.setAttribute("y2", e.clientY);
+      let length = Math.sqrt(Math.pow(startX - e.clientX, 2) + Math.pow(startY - e.clientY, 2));
+      document.getElementById("length").innerHTML = length.toFixed(2);
+    });
+  </script>
+</svg>
+
+
+  </body>
+</html>

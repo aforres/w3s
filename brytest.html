@@ -1,0 +1,36 @@
+ <html>
+<!-- DO NOT DELETE THIS FILE AS IT WORKS -->
+<head>
+    <meta charset="utf-8">
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/brython@3.11.0/brython.min.js">
+    </script>
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/brython@3.11.0/brython_stdlib.js">
+    </script>
+</head>
+
+<body onload="brython()">
+<table>
+<tr><td>
+<div id="green" style="padding:5px;background-color:#8F8;width:150px;">move
+the mouse</div>
+</td>
+<td><div id="trace3">&nbsp;</div></td>
+</tr>
+<tr>
+<td colspan=2>
+ 
+<script type="text/python">
+from browser import document
+
+def mousemove(ev):
+    document["trace3"].text = f"coordinates : {ev.x}, {ev.y}"
+
+document["green"].bind("mousemove", mousemove)
+
+</script>
+
+</body>
+</html>
+

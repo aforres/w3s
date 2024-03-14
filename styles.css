@@ -1,0 +1,32 @@
+.small {
+      font: bold 10px;
+      font-family: Monospace;
+    }
+.heavy {
+      font: bold 30px sans-serif;
+    }
+
+
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.row {
+  flex-direction: row;
+}
+
+.svg-container {
+  overflow: hidden;
+  height: 640px;
+  width: 1280px;
+}
+
+svg {
+  transition: transform 0.1s linear 0.1s;
+}
+
+

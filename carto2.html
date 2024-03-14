@@ -1,0 +1,67 @@
+ <html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+ <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "https://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd"><?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "https://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+<svg xmlns="https://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 450 250" onload="init()">
+    <title>Demonstration of MouseEvent properties and methods</title>
+    <script type="text/ecmascript">
+        <![CDATA[
+            var evtText1;
+            var evtText2;
+            var evtText3;
+            var evtText4;
+            function init() {
+                evtText1 = document.getElementById("evtText1");
+                evtText2 = document.getElementById("evtText2");
+                evtText3 = document.getElementById("evtText3");
+                evtText4 = document.getElementById("evtText4");
+            }
+            function showEvtData(evt) {
+                evt.preventDefault();
+                evtText1.firstChild.nodeValue = ".type="+evt.type+", .screenX="+evt.screenX+", .screenY="+evt.screenY+", .clientX="+evt.clientX+", .clientY="+evt.clientY;
+                var text = ".target.id="+evt.target.getAttributeNS(null,"id")+", .currentTarget.id="+evt.currentTarget.getAttributeNS(null,"id");
+                if (evt.relatedTarget) {
+                    if (evt.relatedTarget.hasAttributeNS(null,"id")) {
+                        text += ", .relatedTarget.id="+evt.relatedTarget.getAttributeNS(null,"id");
+                    }
+                    else {
+                        text += ", .relatedTarget.id=no id available";
+                    }
+                }
+                else {
+                    text += ", .relatedTarget=undefined";
+                }
+                evtText2.firstChild.nodeValue = text;
+                evtText3.firstChild.nodeValue = ".button="+evt.button+", .detail="+evt.detail+", .timeStamp="+evt.timeStamp;
+                evtText4.firstChild.nodeValue = ".altKey="+evt.altKey+", .shiftKey="+evt.shiftKey+", .ctrlKey="+evt.ctrlKey+", .metaKey="+evt.metaKey;
+           }
+        ]]>
+    </script>
+    <rect id="bgRect" x="-500" y="-500" width="1500" height="1500" fill="yellow" stroke="none" />
+    <rect x="5" y="40" width="50" height="30" fill="red" onclick="showEvtData(evt)" onmouseover="showEvtData(evt)" onmouseout="showEvtData(evt)" id="myRedRect" />
+    <g id="ancestorOfGreenRect" onclick="showEvtData(evt)" onmouseover="showEvtData(evt)" onmouseout="showEvtData(evt)">
+        <rect x="55" y="40" width="50" height="30" fill="green" id="myGreenRect" />
+    </g>
+    <rect x="190" y="40" width="50" height="30" fill="darkgray" id="myGrayRect" onmousemove="showEvtData(evt)" />
+    <rect x="250" y="40" width="50" height="30" fill="black" id="myBlackRect" onmousemove="showEvtData(evt)" />
+    <g font-size="10px" font-family="Arial">
+        <text x="5" y="30" font-size="12px" font-weight="bold">Demonstration of MouseEvent properties and methods</text>
+        <text x="5" y="90">Click, mouseover and mouseout<tspan x="5" dy="15">on the above red and green</tspan><tspan x="5" dy="15">rectangles</tspan></text>
+        <text x="190" y="90">Mousemove over the<tspan x="190" dy="15">gray and black rects to get</tspan><tspan x="190" dy="15">properties of the mousemove event</tspan></text>
+        <text x="5" y="160" id="evtText1"> </text>
+        <text x="5" y="175" id="evtText2"> </text>
+        <text x="5" y="190" id="evtText3"> </text>
+        <text x="5" y="205" id="evtText4"> </text>
+    </g>
+</svg>
+</body>
+</html>

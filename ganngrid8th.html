@@ -1,0 +1,25 @@
+<!-- Comment ganngrid8th.html -->
+<html>
+<head>
+	<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<svg width="1281" height="1281">	
+<!-- 64pixel larger squares (20*10sq.) + PLUS 1 to add bold line  -->
+<defs>
+	<pattern id="eighthGrid" width="8" height="8" patternUnits="userSpaceOnUse">
+		<path d="M 8 0 L 0 0 0 8" fill="none" stroke="#C0C0C0" stroke-width="0.8"/>
+	</pattern>
+	<pattern id="grid" width="64" height="64" patternUnits="userSpaceOnUse">
+		<rect width="64" height="64" fill="url(#eighthGrid)"/>
+		<path d="M 64 0 L 0 0 0 64" fill="none" stroke="#A9A9A9" stroke-width="1.0"/>
+	</pattern>
+</defs>
+<rect width="100%" height="100%" fill="url(#grid)"/>
+<text font-family="Monospace" font-style="bold" font-size="8" x='1' y='8'>Gann graph paper</text>
+<text x="1" y="16" fill='black' font-family='Monospace' font-style="bold" font-size='8'>Large sq 64 x 64 px</text>
+<text x="1" y="24" fill='black' font-family='Monospace' font-style="bold" font-size='8'>Small sq 8 x 8 px</text>
+
+</svg>
+</body>
+</html>

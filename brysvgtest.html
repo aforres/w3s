@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="styles.css" />
+    <meta charset="utf-8">
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/brython@3.11.0/brython.min.js">
+    </script>
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/brython@3.11.0/brython_stdlib.js">
+    </script>
+
+
+  </head>
+
+<body>
+
+    <p>Make two mouse clicks on the page and you should see a straight line!</p>
+     
+<svg width="1280" height="640" viewbox="0 0 1280 640">
+     <script>
+    // Track mouse clicks
+    let clicks = [];
+    document.addEventListener("click", (e) => {
+      clicks.push({
+        x: e.offsetX,
+        y: e.offsetY,
+      });
+      // If two clicks, draw line
+      if (clicks.length === 2) {
+        let line = document.createElementNS("http://www.w3.org/2000/svg", "line");
+        line.setAttribute("x1", clicks[0].x);
+        line.setAttribute("y1", clicks[0].y);
+        line.setAttribute("x2", clicks[1].x);
+        line.setAttribute("y2", clicks[1].y);
+        line.setAttribute("style", "stroke:rgb(255,0,0);stroke-width:2");
+        document.querySelector("svg").appendChild(line);
+        clicks = [];
+      }
+    });
+  </script>
+</svg>
+</body>
+</html>
